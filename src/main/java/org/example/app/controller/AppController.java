@@ -21,10 +21,10 @@ public class AppController {
 
     private void filterChoice(int choice) {
         switch (choice) {
-            case 1 -> service.createContact();
-            case 2 -> service.readContacts();
-            case 3 -> service.updateContact();
-            case 4 -> service.deleteContact();
+            case 1 -> service.createInfoUser();
+            case 2 -> service.readInfoUser();
+            case 3 -> service.updateInfoUser();
+            case 4 -> service.deleteInfoUser();
             case 0 -> view.getOutput(choice, Constants.APP_CLOSE_MSG);
             default -> service.getNoSuchOption(choice);
         }

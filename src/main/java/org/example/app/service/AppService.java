@@ -18,7 +18,7 @@ import org.example.app.view.UserUpdateView;
 
 public class AppService {
 
-    public void createContact() {
+    public void createInfoUser() {
         UserCreateRepository repository = new UserCreateRepository();
         UserCreateService service = new UserCreateService(repository);
         UserCreateView view = new UserCreateView();
@@ -26,7 +26,7 @@ public class AppService {
         controller.createInfoUser();
     }
 
-    public void readContacts() {
+    public void readInfoUser() {
         UserReadRepository repository = new UserReadRepository();
         UserReadService service = new UserReadService(repository);
         UserReadView view = new UserReadView();
@@ -34,7 +34,7 @@ public class AppService {
         controller.readInfoUser();
     }
 
-    public void updateContact() {
+    public void updateInfoUser() {
         UserUpdateRepository repository = new UserUpdateRepository();
         UserUpdateService service = new UserUpdateService(repository);
         UserUpdateView view = new UserUpdateView();
@@ -42,7 +42,7 @@ public class AppService {
         controller.updateInfoUser();
     }
 
-    public void deleteContact() {
+    public void deleteInfoUser() {
         UserDeleteRepository repository = new UserDeleteRepository();
         UserDeleteService service = new UserDeleteService(repository);
         UserDeleteView view = new UserDeleteView();
