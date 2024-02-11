@@ -8,14 +8,14 @@ import org.example.app.utils.IdChecker;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ContactUpdateRepository {
+public class UserUpdateRepository {
 
-    public String updateContact(User contact) {
+    public String updateInfoUser(User info) {
         // Перевіряємо наявність id в БД.
         // ТАК - працюємо з даними.
         // НІ - повідомлення про відсутність id.
-        if (IdChecker.isIdExists(contact.getId())) {
-            return updateContactById(contact);
+        if (IdChecker.isIdExists(info.getId())) {
+            return updateContactById(info);
         } else {
             return Constants.ID_NO_EXISTS_MSG;
         }

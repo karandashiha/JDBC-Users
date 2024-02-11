@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ContactReadRepository {
+public class UserReadRepository {
 
     List<User> list;
 
-    public List<User> readContacts() {
+    public List<User> readInfoUser() {
 
         try (Statement stmt = DBConn.connect().createStatement()) {
 

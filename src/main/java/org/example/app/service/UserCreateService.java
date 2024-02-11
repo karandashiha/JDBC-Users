@@ -2,22 +2,22 @@ package org.example.app.service;
 
 import org.example.app.entity.User;
 import org.example.app.exceptions.CreateException;
-import org.example.app.repository.ContactCreateRepository;
+import org.example.app.repository.UserCreateRepository;
 import org.example.app.utils.Constants;
 import org.example.app.utils.EmailValidator;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ContactCreateService {
+public class UserCreateService {
 
-    ContactCreateRepository repository;
+    UserCreateRepository repository;
 
-    public ContactCreateService(ContactCreateRepository repository) {
+    public UserCreateService(UserCreateRepository repository) {
         this.repository = repository;
     }
 
-    public String createContact(String[] data) {
+    public String createInfoUser(String[] data) {
 
         Map<String, String> errors = validateData(data);
 
@@ -29,7 +29,7 @@ public class ContactCreateService {
             }
         }
 
-        return repository.createContact(convertData(data));
+        return repository.createInfoUser(convertData(data));
     }
 
     private Map<String, String> validateData(String[] data) {
@@ -49,10 +49,10 @@ public class ContactCreateService {
     }
 
     private User convertData(String[] data) {
-        User contact = new User();
-        contact.setFirstName(data[0]);
-        contact.setLastName(data[1]);
-        contact.setEmail(data[2]);
-        return contact;
+        User info = new User();
+        info.setFirstName(data[0]);
+        info.setLastName(data[1]);
+        info.setEmail(data[2]);
+        return info;
     }
 }

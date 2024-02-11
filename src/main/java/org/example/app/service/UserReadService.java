@@ -1,24 +1,24 @@
 package org.example.app.service;
 
 import org.example.app.entity.User;
-import org.example.app.repository.ContactReadRepository;
+import org.example.app.repository.UserReadRepository;
 import org.example.app.utils.Constants;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ContactReadService {
+public class UserReadService {
 
-    ContactReadRepository repository;
+    UserReadRepository repository;
 
-    public ContactReadService(ContactReadRepository repository) {
+    public UserReadService(UserReadRepository repository) {
         this.repository = repository;
     }
 
-    public String readContacts() {
+    public String readInfoUser() {
 
         // Отримуємо дані у колекцію.
-        List<User> list = repository.readContacts();
+        List<User> list = repository.readInfoUser();
 
         // Якщо колекція не null, формуємо виведення.
         // Інакше повідомлення про відсутність даних.
@@ -28,16 +28,16 @@ public class ContactReadService {
             if (!list.isEmpty()) {
                 AtomicInteger count = new AtomicInteger(0);
                 StringBuilder stringBuilder = new StringBuilder();
-                list.forEach((contact) ->
+                list.forEach((info) ->
                         stringBuilder.append(count.incrementAndGet())
                                 .append(") id: ")
-                                .append(contact.getId())
+                                .append(info.getId())
                                 .append(", ")
-                                .append(contact.getFirstName())
+                                .append(info.getFirstName())
                                 .append(" ")
-                                .append(contact.getLastName())
+                                .append(info.getLastName())
                                 .append(", ")
-                                .append(contact.getEmail())
+                                .append(info.getEmail())
                                 .append("\n")
                 );
                 return "\n______ CONTACTS ___________\n" + stringBuilder;

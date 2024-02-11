@@ -2,23 +2,22 @@ package org.example.app.service;
 
 import org.example.app.entity.User;
 import org.example.app.exceptions.UpdateException;
-import org.example.app.repository.ContactUpdateRepository;
+import org.example.app.repository.UserDeleteRepository;
 import org.example.app.utils.Constants;
-import org.example.app.utils.EmailValidator;
 import org.example.app.utils.IdValidator;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ContactUpdateService {
+public class UserDeleteService {
 
-    ContactUpdateRepository repository;
+    UserDeleteRepository repository;
 
-    public ContactUpdateService(ContactUpdateRepository repository) {
+    public UserDeleteService(UserDeleteRepository repository) {
         this.repository = repository;
     }
 
-    public String updateContact(String[] data) {
+    public String deleteInfoUser(String[] data) {
 
         Map<String, String> errors = validateData(data);
 
@@ -30,7 +29,7 @@ public class ContactUpdateService {
             }
         }
 
-        return repository.updateContact(convertData(data));
+        return repository.deleteInfoUser(convertData(data));
     }
 
     private Map<String, String> validateData(String[] data) {
@@ -40,16 +39,12 @@ public class ContactUpdateService {
         if (IdValidator.isIdValid(data[0]))
             errors.put("id", Constants.WRONG_ID_MSG);
 
-        if (EmailValidator.isEmailValid(data[1]))
-            errors.put("email", Constants.WRONG_EMAIL_MSG);
-
         return errors;
     }
 
     private User convertData(String[] data) {
-        User contact = new User();
-        contact.setId(Integer.parseInt(data[0]));
-        contact.setEmail(data[1]);
-        return contact;
+        User info = new User();
+        info.setId(Integer.parseInt(data[0]));
+        return info;
     }
 }

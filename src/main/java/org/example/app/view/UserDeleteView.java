@@ -2,7 +2,7 @@ package org.example.app.view;
 
 import java.util.Scanner;
 
-public class ContactDeleteView {
+public class UserDeleteView {
 
     public String[] getData() {
         Scanner scanner = new Scanner(System.in);
